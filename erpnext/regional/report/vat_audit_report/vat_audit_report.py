@@ -19,6 +19,9 @@ class VATAuditReport:
 		self.columns = []
 		self.data = []
 		self.doctypes = ["Purchase Invoice", "Sales Invoice"]
+		# Local customization (restored 2026-11-26, originally on old server): optional Voucher Type filter
+		if self.filters.get("voucher_type") in self.doctypes:
+			self.doctypes = [self.filters.voucher_type]
 
 	def run(self):
 		self.get_sa_vat_accounts()

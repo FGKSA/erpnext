@@ -26,5 +26,12 @@ frappe.query_reports["VAT Audit Report"] = {
 			reqd: 1,
 			default: frappe.datetime.get_today(),
 		},
+		{
+			// Local customization (restored 2026-11-26): filter by voucher type
+			fieldname: "voucher_type",
+			label: __("Voucher Type"),
+			fieldtype: "Select",
+			options: ["", "Sales Invoice", "Purchase Invoice"],
+		},
 	],
 };
